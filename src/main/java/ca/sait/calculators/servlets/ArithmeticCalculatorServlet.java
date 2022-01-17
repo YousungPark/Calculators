@@ -38,7 +38,7 @@ public class ArithmeticCalculatorServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-       request.setAttribute("message", "---");
+       
        getServletContext().getRequestDispatcher("/WEB-INF/arithmeticcalculator.jsp").forward(request,response);
     }
 
@@ -59,7 +59,7 @@ public class ArithmeticCalculatorServlet extends HttpServlet {
         String message = "";
         
         
-      if(firstInput != null && secondInput != null ){
+      if(!firstInput.isEmpty()&& !secondInput.isEmpty() ){
         try {
             int firstNumb = Integer.parseInt(firstInput);
             int secondNumb = Integer.parseInt(secondInput);
@@ -87,7 +87,7 @@ public class ArithmeticCalculatorServlet extends HttpServlet {
       }
    
         else{
-            message = "invalid";
+            message = "---";
         }
        
         request.setAttribute("message", message);
